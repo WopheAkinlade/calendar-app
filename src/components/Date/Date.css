@@ -1,0 +1,13 @@
+.day{
+    text-align: center;
+    padding: 15px;
+    border: 2px solid;
+    margin-top: -20px;
+    transition: 400ms ease-out
+}
+
+.day:hover{
+    cursor: pointer;
+    background-color: rgba(138, 137, 137, 0.786);
+    transition-delay: 200ms;
+}

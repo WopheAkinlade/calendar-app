@@ -1,21 +1,25 @@
+import "./Month.css"
+import Day from "../Date/Date"
+
 const Month = (props) => {
+  
+
   return (
     <div>
       <title>May 2022</title>
-      <table>
+      <table className="calendarPage" style={{borderCollapse: 'collapse'}}>
+        <thead>
         <tr>
-          <th>Sun</th>
-          <th>Mon</th>
-          <th>Tue</th>
-          <th>Wed</th>
-          <th>Thurs</th>
-          <th>Fri</th>
-          <th>Sat</th>
-          <th>Sun</th>
+          <th className="weekday">Sunday</th>
+          <th className="weekday">Monday</th>
+          <th className="weekday">Tuesday</th>
+          <th className="weekday">Wednesday</th>
+          <th className="weekday">Thursday</th>
+          <th className="weekday">Friday</th>
+          <th className="weekday">Saturday</th>
         </tr>
-      <tr>
-        {props.}
-      </tr>
+        </thead>
+        <Day days={props.days} />
       </table>
     </div>
   )
