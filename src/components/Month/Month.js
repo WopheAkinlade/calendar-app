@@ -2,11 +2,12 @@ import "./Month.css"
 import Day from "../Date/Date"
 
 const Month = (props) => {
-  
+  let i = 0
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "December"]
 
   return (
     <div>
-      <title>May 2022</title>
+      <h1>{months[i]} 2022</h1>
       <table className="calendarPage" style={{borderCollapse: 'collapse'}}>
         <thead>
         <tr>
