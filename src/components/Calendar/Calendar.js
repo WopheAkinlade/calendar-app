@@ -14,7 +14,9 @@ const Calendar = () => {
 
   return (
     <div className="calendar">
+      <button>Previous Month</button>
       <Month days={days} count={i} />
+      <button>Next Month</button>
     </div>
   );
 };
