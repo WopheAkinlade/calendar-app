@@ -1,4 +1,4 @@
-import "./Date.css"
+import "./Date.css";
 
 const Day = (props) => {
   return (
