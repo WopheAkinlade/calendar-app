@@ -1,7 +1,13 @@
 .calendar{
     height: 50%;
-    width: 770px;
+    width: 90%;
     margin: auto;
     margin-top: 20vh;
-    margin-right: 27vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button{
+    padding: 10px;
 }

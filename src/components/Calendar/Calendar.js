@@ -10,10 +10,11 @@ const Calendar = () => {
     [ 29, 30, 31]
   ]
 
+  let i = 0
 
   return (
     <div className="calendar">
-      <Month days={days} />
+      <Month days={days} count={i} />
     </div>
   )
 }
