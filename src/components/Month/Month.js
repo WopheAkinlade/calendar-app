@@ -16,6 +16,7 @@ const Month = (props) => {
     "November",
     "December",
   ];
+  console.log(props.count);
 
   return (
     <div>

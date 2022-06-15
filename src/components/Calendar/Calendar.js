@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Month from "../Month/Month";
 import "./Calendar.css";
 
@@ -19,33 +19,31 @@ const Calendar = () => {
     if(count < 11){
       setCount(count + 1)
     }
-    if(count === 10){
-      setIncDisabled(true)
-    }else {
-      setIncDisabled(false)
-    }
-    if(count < 0){
-      setDecDisabled(true)
-    } else {
-      setDecDisabled(false)
-    }
+    console.log(count)
   }
 
   const decrement = () => {
     if(count > 0){
       setCount(count - 1)
     }
-    if(count === 10){
+    
+    console.log(count)
+  }
+
+  useEffect(() => {
+    if(count === 11){
       setIncDisabled(true)
-    }else {
+    }else{
       setIncDisabled(false)
     }
-    if(count < 0){
+    if(count === 0){
       setDecDisabled(true)
-    } else {
+    }else{
       setDecDisabled(false)
     }
-  }
+  }, [count])
+
+  console.log(count, isDecDisabled, isIncDisabled);
 
   return (
     <div className="calendar">
