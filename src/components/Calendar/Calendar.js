@@ -1,7 +1,11 @@
+import { useState } from "react";
 import Month from "../Month/Month";
 import "./Calendar.css";
 
 const Calendar = () => {
+  const [ count, setCount ] = useState(0)
+  const [ isIncDisabled, setIncDisabled ] = useState(false)
+  const [ isDecDisabled, setDecDisabled ] = useState(true)
   const days = [
     [1, 2, 3, 4, 5, 6, 7],
     [8, 9, 10, 11, 12, 13, 14],
@@ -10,13 +14,48 @@ const Calendar = () => {
     [29, 30, 31],
   ];
 
-  let i = 0;
+
+  const increment = () => { 
+    if(count < 11){
+      setCount(count + 1)
+    }
+    if(count === 10){
+      setIncDisabled(true)
+    }else {
+      setIncDisabled(false)
+    }
+    if(count < 0){
+      setDecDisabled(true)
+    } else {
+      setDecDisabled(false)
+    }
+  }
+
+  const decrement = () => {
+    if(count > 0){
+      setCount(count - 1)
+    }
+    if(count === 10){
+      setIncDisabled(true)
+    }else {
+      setIncDisabled(false)
+    }
+    if(count < 0){
+      setDecDisabled(true)
+    } else {
+      setDecDisabled(false)
+    }
+  }
 
   return (
     <div className="calendar">
-      <button>Previous Month</button>
-      <Month days={days} count={i} />
-      <button>Next Month</button>
+      <button disabled={isDecDisabled} onClick={decrement} >
+        Previous Month
+      </button>
+      <Month days={days} count={count} />
+      <button disabled={isIncDisabled} onClick={increment}>
+        Next Month
+      </button>
     </div>
   );
 };

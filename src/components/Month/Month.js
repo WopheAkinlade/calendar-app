@@ -13,6 +13,7 @@ const Month = (props) => {
     "August",
     "September",
     "October",
+    "November",
     "December",
   ];
 
