@@ -3,11 +3,11 @@
     padding: 15px;
     border: 2px solid;
     margin-top: -20px;
-    transition: 400ms ease-out
+    transition: 300ms 
 }
 
 .day:hover{
     cursor: pointer;
-    background-color: rgba(138, 137, 137, 0.786);
-    transition-delay: 200ms;
+    background-color: rgba(184, 180, 180, 0.786);
+    transition-delay: 100ms;
 }
