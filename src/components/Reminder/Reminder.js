@@ -2,7 +2,7 @@ import React from "react";
 import "./Reminder.css";
 import { Icon } from '@iconify/react';
 
-const Reminder = ({ reminders }) => {
+const Reminder = ({ reminders, deleteFunc }) => {
  
   return (
     <div className="container">
@@ -13,7 +13,7 @@ const Reminder = ({ reminders }) => {
         return (
           <p className="task" key={task.tracker} style={{ borderLeft: task.important && "5px solid black"}} >
             {task.activity} at {task.time}
-            <Icon icon="icons8:cancel" className="cancelButton" />
+            <Icon icon="icons8:cancel" className="cancelButton" onClick={() => deleteFunc(task.tracker)}/>
           </p>
         );
       })}

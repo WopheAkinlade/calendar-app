@@ -37,7 +37,7 @@ const Calendar = () => {
     [8, 9, 10, 11, 12, 13, 14],
     [15, 16, 17, 18, 19, 20, 21],
     [22, 23, 24, 25, 26, 27, 28],
-    [29, 30, 31, "", "", "", ""],
+    [29, 30, 31],
   ];
 
 
@@ -75,6 +75,10 @@ const Calendar = () => {
     setShowReminder(!showReminder)
   }
 
+  const deleteReminder = (track) => {
+    setReminder(reminders.filter((reminder) => reminder.tracker !== track))
+  }
+
   return (
     <div>
       <div className="calendar">
@@ -87,7 +91,7 @@ const Calendar = () => {
         </button>
       </div>
       <div className="reminderDiv">
-        {showReminder && <Reminder reminders={reminders} />}
+        {showReminder && <Reminder reminders={reminders} deleteFunc={deleteReminder} />}
       </div>
     </div>
   );
