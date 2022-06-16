@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Month from "../Month/Month";
 import "./Calendar.css";
 import Reminder from "../Reminder/Reminder";
+import { Icon } from '@iconify/react';
 
 const Calendar = () => {
   const [ count, setCount ] = useState(0)
@@ -55,11 +56,11 @@ const Calendar = () => {
     <div>
       <div className="calendar">
         <button disabled={isDecDisabled} onClick={decrement} >
-          Previous Month
+          <Icon icon="ep:arrow-left" className="arrow"/>
         </button>
         <Month days={days} count={count} toggleFunction={toggleReminder}/>
         <button disabled={isIncDisabled} onClick={increment}>
-          Next Month
+          <Icon icon="ep:arrow-right" className="arrow" />
         </button>
       </div>
       <div className="reminderDiv">
