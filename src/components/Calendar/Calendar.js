@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import Month from "../Month/Month";
 import "./Calendar.css";
+import Reminder from "../Reminder/Reminder";
 
 const Calendar = () => {
   const [ count, setCount ] = useState(0)
   const [ isIncDisabled, setIncDisabled ] = useState(false)
   const [ isDecDisabled, setDecDisabled ] = useState(true)
+  const [ showReminder, setShowReminder ] = useState(false)
   const days = [
     [1, 2, 3, 4, 5, 6, 7],
     [8, 9, 10, 11, 12, 13, 14],
@@ -45,15 +47,24 @@ const Calendar = () => {
 
   console.log(count, isDecDisabled, isIncDisabled);
 
+  const toggleReminder = () => {
+    setShowReminder(!showReminder)
+  }
+
   return (
-    <div className="calendar">
-      <button disabled={isDecDisabled} onClick={decrement} >
-        Previous Month
-      </button>
-      <Month days={days} count={count} />
-      <button disabled={isIncDisabled} onClick={increment}>
-        Next Month
-      </button>
+    <div>
+      <div className="calendar">
+        <button disabled={isDecDisabled} onClick={decrement} >
+          Previous Month
+        </button>
+        <Month days={days} count={count} toggleFunction={toggleReminder}/>
+        <button disabled={isIncDisabled} onClick={increment}>
+          Next Month
+        </button>
+      </div>
+      <div className="reminderDiv">
+        {showReminder && <Reminder />}
+      </div>
     </div>
   );
 };

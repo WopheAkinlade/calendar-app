@@ -33,7 +33,7 @@ const Month = (props) => {
             <th className="weekday">Saturday</th>
           </tr>
         </thead>
-        <Day days={props.days} />
+        <Day days={props.days} toggle={props.toggleFunction}/>
       </table>
     </div>
   );
