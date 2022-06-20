@@ -12,8 +12,16 @@ const Day = (props) => {
              
              onClick={
                 () =>{
-                  props.toggle()
-                  props.setDyH(day)
+                  if(props.showReminder){
+                    if(props.dyH !== day){
+                      props.setDyH(day)
+                    }else{
+                      props.toggle()
+                    }
+                  }else{
+                    props.setDyH(day)
+                    props.toggle()
+                  }
                 }                
               }>
               {day}
@@ -28,8 +36,16 @@ const Day = (props) => {
              key={day}
              onClick={
                 () =>{
-                  props.toggle()
-                  props.setDyH(day)
+                  if(props.showReminder){
+                    if(props.dyH !== day){
+                      props.setDyH(day)
+                    }else{
+                      props.toggle()
+                    }
+                  }else{
+                    props.setDyH(day)
+                    props.toggle()
+                  }
                 }
               }>
               {day}
@@ -44,8 +60,16 @@ const Day = (props) => {
              key={day}
              onClick={
                 () =>{
-                  props.toggle()
-                  props.setDyH(day)
+                  if(props.showReminder){
+                    if(props.dyH !== day){
+                      props.setDyH(day)
+                    }else{
+                      props.toggle()
+                    }
+                  }else{
+                    props.setDyH(day)
+                    props.toggle()
+                  }
                 }
               }>
               {day}
@@ -60,8 +84,16 @@ const Day = (props) => {
              key={day}
              onClick={
                 () =>{
-                  props.toggle()
-                  props.setDyH(day)
+                  if(props.showReminder){
+                    if(props.dyH !== day){
+                      props.setDyH(day)
+                    }else{
+                      props.toggle()
+                    }
+                  }else{
+                    props.setDyH(day)
+                    props.toggle()
+                  }
                 }
               }>
               {day}
@@ -76,8 +108,16 @@ const Day = (props) => {
              key={day}
              onClick={
                 () =>{
-                  props.toggle()
-                  props.setDyH(day)
+                  if(props.showReminder){
+                    if(props.dyH !== day){
+                      props.setDyH(day)
+                    }else{
+                      props.toggle()
+                    }
+                  }else{
+                    props.setDyH(day)
+                    props.toggle()
+                  }
                 }
               }>
               {day}

@@ -86,7 +86,7 @@ const Calendar = () => {
         <button className="arrowButton" disabled={isDecDisabled} onClick={decrement} >
           <Icon icon="ep:arrow-left" className="arrow"/>
         </button>
-        <Month days={days} count={count} toggleFunction={toggleReminder} dayHolder={dayHolder} setDayHolder={setDayHolder} />
+        <Month days={days} count={count} toggleFunction={toggleReminder} dayHolder={dayHolder} setDayHolder={setDayHolder} showReminder={showReminder} />
         <button className="arrowButton" disabled={isIncDisabled} onClick={increment}>
           <Icon icon="ep:arrow-right" className="arrow" />
         </button>
