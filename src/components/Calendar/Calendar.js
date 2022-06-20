@@ -8,8 +8,9 @@ const Calendar = () => {
   const [ count, setCount ] = useState(0)
   const [ isIncDisabled, setIncDisabled ] = useState(false)
   const [ isDecDisabled, setDecDisabled ] = useState(true)
-  const [ showReminder, setShowReminder ] = useState(true)
-  const [ reminders, setReminder] = useState(
+  const [ showReminder, setShowReminder ] = useState(false)
+  const [ dayHolder, setDayHolder ] = useState(" ")
+  const [ reminders, setReminder ] = useState(
     [
       {
         tracker: 1,
@@ -85,13 +86,13 @@ const Calendar = () => {
         <button className="arrowButton" disabled={isDecDisabled} onClick={decrement} >
           <Icon icon="ep:arrow-left" className="arrow"/>
         </button>
-        <Month days={days} count={count} toggleFunction={toggleReminder}/>
+        <Month days={days} count={count} toggleFunction={toggleReminder} dayHolder={dayHolder} setDayHolder={setDayHolder} />
         <button className="arrowButton" disabled={isIncDisabled} onClick={increment}>
           <Icon icon="ep:arrow-right" className="arrow" />
         </button>
       </div>
       <div className="reminderDiv">
-        {showReminder && <Reminder reminders={reminders} deleteFunc={deleteReminder} />}
+        {showReminder && <Reminder reminders={reminders} deleteFunc={deleteReminder} day={dayHolder} />}
       </div>
     </div>
   );

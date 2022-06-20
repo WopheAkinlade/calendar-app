@@ -2,12 +2,12 @@ import React from "react";
 import "./Reminder.css";
 import { Icon } from '@iconify/react';
 
-const Reminder = ({ reminders, deleteFunc }) => {
+const Reminder = ({ reminders, deleteFunc, day }) => {
  
   return (
     <div className="container">
       {/* dynamic date */}
-      <h2 style={{ marginBottom: 2 }}>Reminders for today:</h2>
+      <h2 style={{ marginBottom: 2 }}>Reminders for {day}:</h2>
       <hr style={{ backgroundColor: "steelblue"}} />
       {reminders.map((task) => {
         return (
