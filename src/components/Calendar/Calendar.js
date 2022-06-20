@@ -70,8 +70,6 @@ const Calendar = () => {
     }
   }, [count])
 
-  console.log(count, isDecDisabled, isIncDisabled);
-
   const toggleReminder = () => {
     setShowReminder(!showReminder)
   }
