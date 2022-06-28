@@ -5,5 +5,10 @@
     padding: 5px;
     text-align: center;
     width: 120px;
+    margin: -1px 0 0 -1px;
+}
+
+.calendarPage{
+    width: 850px;
 }
 

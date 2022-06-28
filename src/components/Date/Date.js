@@ -1,68 +1,73 @@
+import { useState } from "react";
 import "./Date.css";
 
-const Day = (props) => {
+const DaySquare = ({ toggle, dyH, setDyH, showReminder, dt }) => {
+  const day = dt.getDate();
+  const month = dt.getMonth();
+  const year = dt.getFullYear();
+  const [ daysOfTheMonth ] = useState(new Date(year, month, 0).getDate());
+  const firstDay = new Date(year, month, 1)
+  const dayString = firstDay.toLocaleDateString(undefined, {
+    weekday: "long",
+    day: "numeric",
+    month: "numeric",
+    year: "numeric",
+  })
+  const weekdays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const currentDay = dayString.split(", ")
+  const paddingDays = weekdays.indexOf(currentDay[0])
+
   const func = (para) => {
-    if (props.showReminder) {
-      if (props.dyH !== para) {
-        props.setDyH(para);
+    if (showReminder) {
+      if (dyH !== para) {
+        setDyH(para);
       } else {
-        props.toggle();
+        toggle();
       }
     } else {
-      props.setDyH(para);
-      props.toggle();
+      setDyH(para);
+      toggle();
     }
   };
+  
 
-  return (
-    <tbody>
-      <tr>
-        {props.days[0].map((day) => {
-          return (
-            <td className="day" key={day} onClick={() => {func(day)}}>
-              {day}
-            </td>
-          );
-        })}
-      </tr>
-      <tr>
-        {props.days[1].map((day) => {
-          return (
-            <td className="day" key={day} onClick={() => {func(day)}}>
-              {day}
-            </td>
-          );
-        })}
-      </tr>
-      <tr>
-        {props.days[2].map((day) => {
-          return (
-            <td className="day" key={day} onClick={() => {func(day)}}>
-              {day}
-            </td>
-          );
-        })}
-      </tr>
-      <tr>
-        {props.days[3].map((day) => {
-          return (
-            <td className="day" key={day} onClick={() => {func(day)}}>
-              {day}
-            </td>
-          );
-        })}
-      </tr>
-      <tr>
-        {props.days[4].map((day) => {
-          return (
-            <td className="day" key={day} onClick={() => {func(day)}}>
-              {day}
-            </td>
-          );
-        })}
-      </tr>
-    </tbody>
-  );
+  const days= [];
+  
+
+  for(let i = 0; i < paddingDays; i++){
+    days.push("")
+  }
+
+  for(let i = 1; i <= daysOfTheMonth; i++){
+    days.push(i)
+  }
+  console.log(paddingDays,daysOfTheMonth, days)
+
+  
+
+  console.log(days)
+  
+  return ( 
+    <div className="calendarBody">
+      {days.map(
+        (day, index) => {
+          if(day){
+            return <div key={index + 1} className="day" onClick={() => func(day)} >{day}</div>
+          }else{
+            return <div key={index + 1} className="day padDay">{day}</div>
+          }
+        }
+      )}
+    </div>
+  );   
 };
 
-export default Day;
+export default DaySquare;

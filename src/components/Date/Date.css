@@ -1,8 +1,17 @@
+.calendarBody{
+    display: flex;
+    flex-wrap: wrap;
+    width: 920px;
+}
+
 .day{
+    width: 100px;
     text-align: center;
-    padding: 15px;
+    padding: 9.6px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     border: 2px solid;
-    margin-top: -20px;
+    margin: -1px -1px -1px -1px;
     transition: 300ms 
 }
 

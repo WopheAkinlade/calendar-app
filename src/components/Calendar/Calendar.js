@@ -32,6 +32,7 @@ const Calendar = () => {
       },
     ]
   )
+  const [ dt ] = useState(new Date())
 
   const days = [
     [1, 2, 3, 4, 5, 6, 7],
@@ -84,7 +85,7 @@ const Calendar = () => {
         <button className="arrowButton" disabled={isDecDisabled} onClick={decrement} >
           <Icon icon="ep:arrow-left" className="arrow"/>
         </button>
-        <Month days={days} count={count} toggleFunction={toggleReminder} dayHolder={dayHolder} setDayHolder={setDayHolder} showReminder={showReminder} />
+        <Month days={days} count={count} toggleFunction={toggleReminder} dayHolder={dayHolder} setDayHolder={setDayHolder} showReminder={showReminder} dt={dt}/>
         <button className="arrowButton" disabled={isIncDisabled} onClick={increment}>
           <Icon icon="ep:arrow-right" className="arrow" />
         </button>

@@ -1,5 +1,5 @@
 import "./Month.css";
-import Day from "../Date/Date";
+import DaySquare from "../Date/Date";
 
 const Month = (props) => {
   const months = [
@@ -16,25 +16,26 @@ const Month = (props) => {
     "November",
     "December",
   ];
-  console.log(props.count);
+
+  const weekdays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
   return (
     <div>
       <h1>{months[props.count]} 2022</h1>
-      <table className="calendarPage" style={{ borderCollapse: "collapse" }}>
-        <thead>
-          <tr>
-            <th className="weekday">Sunday</th>
-            <th className="weekday">Monday</th>
-            <th className="weekday">Tuesday</th>
-            <th className="weekday">Wednesday</th>
-            <th className="weekday">Thursday</th>
-            <th className="weekday">Friday</th>
-            <th className="weekday">Saturday</th>
-          </tr>
-        </thead>
-        <Day days={props.days} toggle={props.toggleFunction} dyH={props.dayHolder} setDyH={props.setDayHolder} showReminder={props.showReminder}/>
-      </table>
+      <div className="calendarPage">
+          <div className="weekdayDiv" style={{ display: "flex" }}>
+            {weekdays.map((weekday) => <h3 key={weekday} className="weekday" >{weekday}</h3> )}
+          </div>
+        <DaySquare days={props.days} toggle={props.toggleFunction} dyH={props.dayHolder} setDyH={props.setDayHolder} showReminder={props.showReminder} dt={props.dt}/>
+      </div>
     </div>
   );
 };
