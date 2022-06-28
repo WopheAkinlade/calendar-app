@@ -31,10 +31,21 @@ const Month = (props) => {
     <div>
       <h1>{months[props.count]} 2022</h1>
       <div className="calendarPage">
-          <div className="weekdayDiv" style={{ display: "flex" }}>
-            {weekdays.map((weekday) => <h3 key={weekday} className="weekday" >{weekday}</h3> )}
-          </div>
-        <DaySquare days={props.days} toggle={props.toggleFunction} dyH={props.dayHolder} setDyH={props.setDayHolder} showReminder={props.showReminder} dt={props.dt}/>
+        <div className="weekdayDiv" style={{ display: "flex" }}>
+          {weekdays.map((weekday) => (
+            <h3 key={weekday} className="weekday">
+              {weekday}
+            </h3>
+          ))}
+        </div>
+        <DaySquare
+          days={props.days}
+          toggle={props.toggleFunction}
+          dyH={props.dayHolder}
+          setDyH={props.setDayHolder}
+          showReminder={props.showReminder}
+          dt={props.dt}
+        />
       </div>
     </div>
   );

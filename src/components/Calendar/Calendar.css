@@ -1,26 +1,26 @@
-.calendar{
-    height: 50%;
-    width: 90%;
-    margin: auto;
-    margin-top: 7vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.calendar {
+  height: 50%;
+  width: 90%;
+  margin: auto;
+  margin-top: 7vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.arrowButton{
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 50%;
-    background-color: white;
-    transition: 100ms;
+.arrowButton {
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 50%;
+  background-color: white;
+  transition: 100ms;
 }
 
-.arrowButton:hover{
-    background-color: skyblue;
+.arrowButton:hover {
+  background-color: skyblue;
 }
 
-.arrow{
-    font-size: 40px;
+.arrow {
+  font-size: 40px;
 }

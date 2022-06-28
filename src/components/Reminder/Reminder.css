@@ -1,26 +1,26 @@
-.container{
-    margin: auto;
-    margin-top: 30px; 
-    width: 500px; 
-    padding: 10px;
-    border: 2px solid steelblue;
-    border-radius: 5px;
+.container {
+  margin: auto;
+  margin-top: 30px;
+  width: 500px;
+  padding: 10px;
+  border: 2px solid steelblue;
+  border-radius: 5px;
 }
 
-.task{
-    padding: 5px;
-    padding-left: 20px;
-    border-radius: 3px;
-    background-color: #eee;
-    display: flex;
-    justify-content: space-between;
+.task {
+  padding: 5px;
+  padding-left: 20px;
+  border-radius: 3px;
+  background-color: #eee;
+  display: flex;
+  justify-content: space-between;
 }
 
-.cancelButton{
-    font-size: x-large;
-    color: red;
+.cancelButton {
+  font-size: x-large;
+  color: red;
 }
 
-.cancelButton:hover{
-    cursor: pointer;
+.cancelButton:hover {
+  cursor: pointer;
 }

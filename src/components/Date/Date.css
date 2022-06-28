@@ -1,22 +1,22 @@
-.calendarBody{
-    display: flex;
-    flex-wrap: wrap;
-    width: 920px;
+.calendarBody {
+  display: flex;
+  flex-wrap: wrap;
+  width: 920px;
 }
 
-.day{
-    width: 100px;
-    text-align: center;
-    padding: 9.6px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border: 2px solid;
-    margin: -1px -1px -1px -1px;
-    transition: 300ms 
+.day {
+  width: 100px;
+  text-align: center;
+  padding: 9.6px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 2px solid;
+  margin: -1px -1px -1px -1px;
+  transition: 300ms;
 }
 
-.day:hover{
-    cursor: pointer;
-    background-color: rgba(184, 180, 180, 0.786);
-    transition-delay: 100ms;
+.day:hover {
+  cursor: pointer;
+  background-color: rgba(184, 180, 180, 0.786);
+  transition-delay: 100ms;
 }

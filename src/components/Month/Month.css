@@ -1,14 +1,13 @@
-.weekday{
-    border: 2px solid black;
-    background-color: rgb(42, 80, 92);
-    color: #eee;
-    padding: 5px;
-    text-align: center;
-    width: 120px;
-    margin: -1px 0 0 -1px;
+.weekday {
+  border: 2px solid black;
+  background-color: rgb(42, 80, 92);
+  color: #eee;
+  padding: 5px;
+  text-align: center;
+  width: 120px;
+  margin: -1px 0 0 -1px;
 }
 
-.calendarPage{
-    width: 850px;
+.calendarPage {
+  width: 850px;
 }
-

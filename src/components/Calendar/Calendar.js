@@ -2,37 +2,35 @@ import { useEffect, useState } from "react";
 import Month from "../Month/Month";
 import "./Calendar.css";
 import Reminder from "../Reminder/Reminder";
-import { Icon } from '@iconify/react';
+import { Icon } from "@iconify/react";
 
 const Calendar = () => {
-  const [ count, setCount ] = useState(0)
-  const [ isIncDisabled, setIncDisabled ] = useState(false)
-  const [ isDecDisabled, setDecDisabled ] = useState(true)
-  const [ showReminder, setShowReminder ] = useState(false)
-  const [ dayHolder, setDayHolder ] = useState(" ")
-  const [ reminders, setReminder ] = useState(
-    [
-      {
-        tracker: 1,
-        activity: "Read a book",
-        time: "16:00",
-        important: false,
-      },
-      {
-        tracker: 2,
-        activity: "Feed the dogs",
-        time: "19:00",
-        important: true,
-      },
-      {
-        tracker: 3,
-        activity: "Pray",
-        time: "21:00",
-        important: true,
-      },
-    ]
-  )
-  const [ dt ] = useState(new Date())
+  const [count, setCount] = useState(0);
+  const [isIncDisabled, setIncDisabled] = useState(false);
+  const [isDecDisabled, setDecDisabled] = useState(true);
+  const [showReminder, setShowReminder] = useState(false);
+  const [dayHolder, setDayHolder] = useState(" ");
+  const [reminders, setReminder] = useState([
+    {
+      tracker: 1,
+      activity: "Read a book",
+      time: "16:00",
+      important: false,
+    },
+    {
+      tracker: 2,
+      activity: "Feed the dogs",
+      time: "19:00",
+      important: true,
+    },
+    {
+      tracker: 3,
+      activity: "Pray",
+      time: "21:00",
+      important: true,
+    },
+  ]);
+  const [dt] = useState(new Date());
 
   const days = [
     [1, 2, 3, 4, 5, 6, 7],
@@ -42,56 +40,77 @@ const Calendar = () => {
     [29, 30, 31],
   ];
 
-
-  const increment = () => { 
-    if(count < 11){
-      setCount(count + 1)
+  const increment = () => {
+    if (count < 11) {
+      setCount(count + 1);
     }
-    console.log(count)
-  }
+    console.log(count);
+  };
 
   const decrement = () => {
-    if(count > 0){
-      setCount(count - 1)
+    if (count > 0) {
+      setCount(count - 1);
     }
-    
-    console.log(count)
-  }
+
+    console.log(count);
+  };
 
   useEffect(() => {
-    if(count === 11){
-      setIncDisabled(true)
-    }else{
-      setIncDisabled(false)
+    if (count === 11) {
+      setIncDisabled(true);
+    } else {
+      setIncDisabled(false);
     }
-    if(count === 0){
-      setDecDisabled(true)
-    }else{
-      setDecDisabled(false)
+    if (count === 0) {
+      setDecDisabled(true);
+    } else {
+      setDecDisabled(false);
     }
-  }, [count])
+  }, [count]);
 
   const toggleReminder = () => {
-    setShowReminder(!showReminder)
-  }
+    setShowReminder(!showReminder);
+  };
 
   const deleteReminder = (track) => {
-    setReminder(reminders.filter((reminder) => reminder.tracker !== track))
-  }
+    setReminder(reminders.filter((reminder) => reminder.tracker !== track));
+  };
 
   return (
     <div>
       <div className="calendar">
-        <button className="arrowButton" disabled={isDecDisabled} onClick={decrement} >
-          <Icon icon="ep:arrow-left" className="arrow"/>
+        <button
+          className="arrowButton"
+          disabled={isDecDisabled}
+          onClick={decrement}
+        >
+          <Icon icon="ep:arrow-left" className="arrow" />
         </button>
-        <Month days={days} count={count} toggleFunction={toggleReminder} dayHolder={dayHolder} setDayHolder={setDayHolder} showReminder={showReminder} dt={dt}/>
-        <button className="arrowButton" disabled={isIncDisabled} onClick={increment}>
+        <Month
+          days={days}
+          count={count}
+          toggleFunction={toggleReminder}
+          dayHolder={dayHolder}
+          setDayHolder={setDayHolder}
+          showReminder={showReminder}
+          dt={dt}
+        />
+        <button
+          className="arrowButton"
+          disabled={isIncDisabled}
+          onClick={increment}
+        >
           <Icon icon="ep:arrow-right" className="arrow" />
         </button>
       </div>
       <div className="reminderDiv">
-        {showReminder && <Reminder reminders={reminders} deleteFunc={deleteReminder} day={dayHolder} />}
+        {showReminder && (
+          <Reminder
+            reminders={reminders}
+            deleteFunc={deleteReminder}
+            day={dayHolder}
+          />
+        )}
       </div>
     </div>
   );
