@@ -45,6 +45,8 @@ const Month = (props) => {
           setDyH={props.setDayHolder}
           showReminder={props.showReminder}
           dt={props.dt}
+          weekdays={weekdays}
+          daysObj={props.daysObj}
         />
       </div>
     </div>

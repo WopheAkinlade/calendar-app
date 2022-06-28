@@ -1,10 +1,8 @@
 import { useState } from "react";
 import "./Date.css";
 
-const DaySquare = ({ toggle, dyH, setDyH, showReminder, dt }) => {
-  const day = dt.getDate();
-  const month = dt.getMonth();
-  const year = dt.getFullYear();
+const DaySquare = ({ toggle, dyH, setDyH, showReminder, dt, weekdays, daysObj }) => {
+  const { day, month, year } = daysObj
   const [daysOfTheMonth] = useState(new Date(year, month, 0).getDate());
   const firstDay = new Date(year, month, 1);
   const dayString = firstDay.toLocaleDateString(undefined, {
@@ -13,15 +11,7 @@ const DaySquare = ({ toggle, dyH, setDyH, showReminder, dt }) => {
     month: "numeric",
     year: "numeric",
   });
-  const weekdays = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+  
   const currentDay = dayString.split(", ");
   const paddingDays = weekdays.indexOf(currentDay[0]);
 
