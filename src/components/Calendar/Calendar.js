@@ -17,8 +17,6 @@ const Calendar = () => {
       year: dt.getFullYear(), 
     }
   )
-  // const [count, setCount] = useState(1);
-  // const [count2, setCount2] = useState(-1);
   let [count, setCount] = useState(0);
   const [daysOfTheMonth] = useState(new Date(daysObj.year, daysObj.month, 0).getDate());
   const [reminders, setReminder] = useState([
@@ -44,31 +42,23 @@ const Calendar = () => {
   
 
   const increment = () => {
-    // setCount2(-1)
-    // setCount(prevcount => prevcount + 1);
-    console.log(count, "before");
     setCount(count += 1)
     setDay({
       day: dt.getDate(),
       month: dt.getMonth() + count,
       year: dt.getFullYear(), 
     });
-    // setCount(0)
     console.log(count, "after")
   };
 
-  // console.log(daysObj, count, count2);
 
   const decrement = () => {
-    // setCount(1)
-    // setCount2(prevcount2 => prevcount2 - 1);
     setCount(count -= 1)
     setDay({
       day: dt.getDate(),
       month: dt.getMonth() + count,
       year: dt.getFullYear(), 
     });
-  //  setCount(0)
   };
 
   useEffect(() => {
