@@ -27,9 +27,13 @@ const Month = (props) => {
     "Saturday",
   ];
 
+  // console.log(props.daysObj);
+
+  // console.log(months[props.daysObj.month]);
+
   return (
     <div>
-      <h1>{months[props.count]} 2022</h1>
+      <h1>{months[props.daysObj.month]} 2022</h1>
       <div className="calendarPage">
         <div className="weekdayDiv" style={{ display: "flex" }}>
           {weekdays.map((weekday) => (

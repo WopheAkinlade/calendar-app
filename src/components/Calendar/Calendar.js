@@ -5,19 +5,21 @@ import Reminder from "../Reminder/Reminder";
 import { Icon } from "@iconify/react";
 
 const Calendar = () => {
-  const [count, setCount] = useState(0);
   const [isIncDisabled, setIncDisabled] = useState(false);
   const [isDecDisabled, setDecDisabled] = useState(true);
   const [showReminder, setShowReminder] = useState(false);
   const [dayHolder, setDayHolder] = useState(" ");
   const [dt] = useState(new Date());
-  const [ daysObj ] = useState(
+  const [ daysObj, setDay ] = useState(
     {
       day: dt.getDate(),
       month: dt.getMonth(),
       year: dt.getFullYear(), 
     }
   )
+  // const [count, setCount] = useState(1);
+  // const [count2, setCount2] = useState(-1);
+  let [count, setCount] = useState(0);
   const [daysOfTheMonth] = useState(new Date(daysObj.year, daysObj.month, 0).getDate());
   const [reminders, setReminder] = useState([
     {
@@ -42,27 +44,40 @@ const Calendar = () => {
   
 
   const increment = () => {
-    if (count < 11) {
-      setCount(count + 1);
-    }
-    console.log(count);
+    // setCount2(-1)
+    // setCount(prevcount => prevcount + 1);
+    console.log(count, "before");
+    setCount(count += 1)
+    setDay({
+      day: dt.getDate(),
+      month: dt.getMonth() + count,
+      year: dt.getFullYear(), 
+    });
+    // setCount(0)
+    console.log(count, "after")
   };
 
-  const decrement = () => {
-    if (count > 0) {
-      setCount(count - 1);
-    }
+  // console.log(daysObj, count, count2);
 
-    console.log(count);
+  const decrement = () => {
+    // setCount(1)
+    // setCount2(prevcount2 => prevcount2 - 1);
+    setCount(count -= 1)
+    setDay({
+      day: dt.getDate(),
+      month: dt.getMonth() + count,
+      year: dt.getFullYear(), 
+    });
+  //  setCount(0)
   };
 
   useEffect(() => {
-    if (count === 11) {
+    if (daysObj.month === 11) {
       setIncDisabled(true);
     } else {
       setIncDisabled(false);
     }
-    if (count === 0) {
+    if (daysObj.month === 0) {
       setDecDisabled(true);
     } else {
       setDecDisabled(false);

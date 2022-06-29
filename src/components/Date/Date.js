@@ -37,9 +37,9 @@ const DaySquare = ({ toggle, dyH, setDyH, showReminder, dt, weekdays, daysObj })
   for (let i = 1; i <= daysOfTheMonth; i++) {
     days.push(i);
   }
-  console.log(paddingDays, daysOfTheMonth, days);
+  // console.log(paddingDays, daysOfTheMonth, days);
 
-  console.log(days);
+  // console.log(days);
 
   return (
     <div className="calendarBody">
