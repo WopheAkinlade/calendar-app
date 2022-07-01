@@ -38,7 +38,7 @@ const Calendar = () => {
       important: true,
     },
   ]);
-  
+  console.log(reminders.length)
 
   const increment = () => {
     setCount(count += 1)
