@@ -1,8 +1,18 @@
 import { useState } from "react";
 import "./Date.css";
+import React from "react";
 
-const DaySquare = ({ toggle, dyH, setDyH, showReminder, dt, weekdays, daysObj }) => {
-  const { day, month, year } = daysObj
+const DaySquare = ({
+  toggle,
+  dyH,
+  setDyH,
+  showReminder,
+  dt,
+  weekdays,
+  daysObj,
+  isMonth,
+}) => {
+  const {month, year } = daysObj;
   const [daysOfTheMonth] = useState(new Date(year, month, 0).getDate());
   const firstDay = new Date(year, month, 1);
   const dayString = firstDay.toLocaleDateString(undefined, {
@@ -11,7 +21,7 @@ const DaySquare = ({ toggle, dyH, setDyH, showReminder, dt, weekdays, daysObj })
     month: "numeric",
     year: "numeric",
   });
-  
+
   const currentDay = dayString.split(", ");
   const paddingDays = weekdays.indexOf(currentDay[0]);
 
@@ -37,16 +47,39 @@ const DaySquare = ({ toggle, dyH, setDyH, showReminder, dt, weekdays, daysObj })
   for (let i = 1; i <= daysOfTheMonth; i++) {
     days.push(i);
   }
-  // console.log(paddingDays, daysOfTheMonth, days);
+  
+  const hoverStyles = (e) => {
+    e.target.style.backgroundColor = "rgba(184, 180, 180, 0.786)";
+  };
 
-  // console.log(days);
+  const revert = (e) => {
+    e.target.style.backgroundColor = "#fff";
+  };
+
+  const thatDay = (e) => {
+    e.target.style.backgroundColor = "cyan";
+  };
 
   return (
     <div className="calendarBody">
       {days.map((day, index) => {
         if (day) {
           return (
-            <div key={index + 1} className="day" onClick={() => func(day)}>
+            <div
+              key={index + 1}
+              className="day"
+              onClick={() => func(day)}
+              style={{
+                backgroundColor:
+                  day === daysObj.day && isMonth ? "cyan" : "white",
+              }}
+              onMouseOver={hoverStyles}
+              onMouseLeave={(e) => {
+                day === daysObj.day && isMonth
+                  ? thatDay(e)
+                  : revert(e)
+              }}
+            >
               {day}
             </div>
           );

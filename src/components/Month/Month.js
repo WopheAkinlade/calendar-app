@@ -1,7 +1,18 @@
 import "./Month.css";
 import DaySquare from "../Date/Date";
+import { useEffect, useState } from "react";
 
 const Month = (props) => {
+  const [isMonth, setIsMonth] = useState(true)
+  let x = new Date().getMonth()
+  useEffect(() => {
+    if(months[props.daysObj.month] === months[x]){
+      setIsMonth(true)
+    }else{
+      setIsMonth(false)
+    }
+  }, [isMonth,props.daysObj.month, x] )
+
   const months = [
     "January",
     "February",
@@ -27,10 +38,6 @@ const Month = (props) => {
     "Saturday",
   ];
 
-  // console.log(props.daysObj);
-
-  // console.log(months[props.daysObj.month]);
-
   return (
     <div>
       <h1>{months[props.daysObj.month]} 2022</h1>
@@ -51,6 +58,7 @@ const Month = (props) => {
           dt={props.dt}
           weekdays={weekdays}
           daysObj={props.daysObj}
+          isMonth={isMonth}
         />
       </div>
     </div>

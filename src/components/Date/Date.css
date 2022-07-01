@@ -17,6 +17,5 @@
 
 .day:hover {
   cursor: pointer;
-  background-color: rgba(184, 180, 180, 0.786);
   transition-delay: 100ms;
 }

@@ -18,7 +18,6 @@ const Calendar = () => {
     }
   )
   let [count, setCount] = useState(0);
-  const [daysOfTheMonth] = useState(new Date(daysObj.year, daysObj.month, 0).getDate());
   const [reminders, setReminder] = useState([
     {
       tracker: 1,
@@ -48,7 +47,6 @@ const Calendar = () => {
       month: dt.getMonth() + count,
       year: dt.getFullYear(), 
     });
-    console.log(count, "after")
   };
 
 
@@ -72,7 +70,7 @@ const Calendar = () => {
     } else {
       setDecDisabled(false);
     }
-  }, [count]);
+  }, [daysObj]);
 
   const toggleReminder = () => {
     setShowReminder(!showReminder);
