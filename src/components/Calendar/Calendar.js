@@ -38,7 +38,6 @@ const Calendar = () => {
       important: true,
     },
   ]);
-  console.log(reminders.length)
 
   const increment = () => {
     setCount(count += 1)
@@ -111,6 +110,7 @@ const Calendar = () => {
         {showReminder && (
           <Reminder
             reminders={reminders}
+            setReminder={setReminder}
             deleteFunc={deleteReminder}
             day={dayHolder}
           />

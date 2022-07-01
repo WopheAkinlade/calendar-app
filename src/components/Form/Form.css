@@ -1,0 +1,26 @@
+.reminderForm{
+    padding: 20px 0px 10px 60px;
+    border: 2px solid #eee;
+    width: 50%;
+    margin: auto;
+}
+
+.reminderForm *{
+    display: block;
+}
+
+input+label{
+    margin-top: 10px;
+}
+
+input{
+    padding: 4px;
+    font-family: inherit;
+}
+
+.submit{
+    margin-top: 20px;
+    margin-left: 50px;
+    padding: 5px;
+    border-radius: 5px;
+}
