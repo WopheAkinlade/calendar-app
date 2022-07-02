@@ -13,7 +13,6 @@ const DaySquare = ({
   isMonth,
 }) => {
   const {month, year } = daysObj;
-  const [daysOfTheMonth] = useState(new Date(year, month, 0).getDate());
   const firstDay = new Date(year, month, 1);
   const dayString = firstDay.toLocaleDateString(undefined, {
     weekday: "long",
@@ -21,6 +20,9 @@ const DaySquare = ({
     month: "numeric",
     year: "numeric",
   });
+  
+  let currentMonth = month + 1
+  const daysOfTheMonth = new Date(year, currentMonth, 0).getDate();
 
   const currentDay = dayString.split(", ");
   const paddingDays = weekdays.indexOf(currentDay[0]);
