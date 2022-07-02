@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./Date.css";
 import React from "react";
 
@@ -20,7 +19,7 @@ const DaySquare = ({
     month: "numeric",
     year: "numeric",
   });
-  
+
   let currentMonth = month + 1
   const daysOfTheMonth = new Date(year, currentMonth, 0).getDate();
 

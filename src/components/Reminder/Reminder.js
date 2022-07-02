@@ -34,6 +34,12 @@ const Reminder = ({ reminders, deleteFunc, day, setReminder }) => {
     buttonText = "Close";
   }
 
+  const addReminder = (reminderObj) => {
+    const tracker = Math.floor(Math.random() * 1000) + 1
+    const newReminder = { tracker, ...reminderObj }
+    setReminder([...reminders, newReminder])
+  };
+
   return (
     <div className="container">
       <div
@@ -48,7 +54,11 @@ const Reminder = ({ reminders, deleteFunc, day, setReminder }) => {
           {buttonText}
         </button>
       </div>
-      {showForm && <TaskForm reminders={reminders} setReminder={setReminder} />}
+      {showForm && (
+        <TaskForm
+          addReminder={addReminder}
+        />
+      )}
       <hr style={{ backgroundColor: "steelblue" }} />
       {reminders.length === 0 && (
         <h3 style={{ marginLeft: 15, fontWeight: "400" }}>

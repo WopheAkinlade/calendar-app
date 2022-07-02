@@ -10,51 +10,29 @@ const Calendar = () => {
   const [showReminder, setShowReminder] = useState(false);
   const [dayHolder, setDayHolder] = useState(" ");
   const [dt] = useState(new Date());
-  const [ daysObj, setDay ] = useState(
-    {
-      day: dt.getDate(),
-      month: dt.getMonth(),
-      year: dt.getFullYear(), 
-    }
-  )
+  const [daysObj, setDay] = useState({
+    day: dt.getDate(),
+    month: dt.getMonth(),
+    year: dt.getFullYear(),
+  });
   let [count, setCount] = useState(0);
-  const [reminders, setReminder] = useState([
-    {
-      tracker: 1,
-      activity: "Read a book",
-      time: "16:00",
-      important: false,
-    },
-    {
-      tracker: 2,
-      activity: "Feed the dogs",
-      time: "19:00",
-      important: true,
-    },
-    {
-      tracker: 3,
-      activity: "Pray",
-      time: "21:00",
-      important: true,
-    },
-  ]);
+  const [reminders, setReminder] = useState([]);
 
   const increment = () => {
-    setCount(count += 1)
+    setCount((count += 1));
     setDay({
       day: dt.getDate(),
       month: dt.getMonth() + count,
-      year: dt.getFullYear(), 
+      year: dt.getFullYear(),
     });
   };
 
-
   const decrement = () => {
-    setCount(count -= 1)
+    setCount((count -= 1));
     setDay({
       day: dt.getDate(),
       month: dt.getMonth() + count,
-      year: dt.getFullYear(), 
+      year: dt.getFullYear(),
     });
   };
 
