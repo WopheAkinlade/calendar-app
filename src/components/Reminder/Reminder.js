@@ -5,7 +5,7 @@ import { useState } from "react";
 import TaskForm from "../Form/TaskForm";
 
 const Reminder = ({ reminders, deleteFunc, day, setReminder }) => {
-  const [showForm, setShowFrom] = useState(false)
+  const [showForm, setShowFrom] = useState(false);
   const buttonStyle = {
     padding: 10,
     backgroundColor: showForm ? "red" : "green",
@@ -15,13 +15,23 @@ const Reminder = ({ reminders, deleteFunc, day, setReminder }) => {
   };
 
   const toggleForm = () => {
-    setShowFrom(!showForm)
-  }
+    setShowFrom(!showForm);
+  };
 
-  let buttonText = "Add Task"
+  const toggleImportance = (tracker) => {
+    setReminder(
+      reminders.map((task) =>
+        task.tracker === tracker
+          ? { ...task, important: !task.important }
+          : task
+      )
+    );
+  };
 
-  if(showForm){
-    buttonText = "Close"
+  let buttonText = "Add Task";
+
+  if (showForm) {
+    buttonText = "Close";
   }
 
   return (
@@ -34,9 +44,11 @@ const Reminder = ({ reminders, deleteFunc, day, setReminder }) => {
         }}
       >
         <h2 style={{ marginBottom: 2 }}>Reminders for {day}:</h2>
-        <button style={buttonStyle} onClick={toggleForm}>{buttonText}</button>
+        <button style={buttonStyle} onClick={toggleForm}>
+          {buttonText}
+        </button>
       </div>
-      {showForm && (<TaskForm reminders={reminders} setReminder={setReminder}/>)}
+      {showForm && <TaskForm reminders={reminders} setReminder={setReminder} />}
       <hr style={{ backgroundColor: "steelblue" }} />
       {reminders.length === 0 && (
         <h3 style={{ marginLeft: 15, fontWeight: "400" }}>
@@ -49,6 +61,7 @@ const Reminder = ({ reminders, deleteFunc, day, setReminder }) => {
             className="task"
             key={task.tracker}
             style={{ borderLeft: task.important && "5px solid black" }}
+            onDoubleClick={() => toggleImportance(task.tracker)}
           >
             {task.activity} at {task.time}
             <Icon
