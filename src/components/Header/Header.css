@@ -1,0 +1,9 @@
+.header{
+    margin-top: 30px;
+    background-color: skyblue;
+}
+
+.header h1 {
+    color: white;
+    font-weight: 700;
+}
